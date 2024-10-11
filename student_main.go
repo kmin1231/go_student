@@ -147,7 +147,7 @@ func PutStudentHandler(c *gin.Context) {
 	student.Id = id
 	student.Grade = calculateGrade(student.Score)
 	students[id] = student
-	c.String(http.StatusCreated, fmt.Sprintf("Success to update id: %d\n", lastId))
+	c.String(http.StatusCreated, fmt.Sprintf("Success to update id: %d\n", id))
 }
 
 type UpdateStudent struct {
@@ -214,7 +214,7 @@ func DeleteStudentHandler(c *gin.Context) {
 	}
 
 	delete(students, id)
-	c.String(http.StatusOK, fmt.Sprintf("Success to delete id: %d\n", lastId))
+	c.String(http.StatusOK, fmt.Sprintf("Success to delete id: %d\n", id))
 }
 
 func calculateGrade(score int) string {
@@ -268,6 +268,17 @@ func CalculateGradeHandler(c *gin.Context) {
 func SearchStudentHandler(c *gin.Context) {
 	nameQuery := c.Query("name")
 	gradeQuery := c.Query("grade")
+	ageQuery := c.Query("age")
+
+    var age int
+    var err error
+    if ageQuery != "" {
+        age, err = strconv.Atoi(ageQuery)
+        if err != nil {
+            c.JSON(http.StatusBadRequest, "Invalid age value")
+            return
+        }
+    }
 
 	list := make(Students, 0)
 	for _, student := range students {
@@ -279,6 +290,11 @@ func SearchStudentHandler(c *gin.Context) {
 		if gradeQuery != "" && student.Grade != gradeQuery {
 			continue
 		}
+
+
+        if ageQuery != "" && student.Age != age {
+            continue
+        }
 
 		list = append(list, student)
 	}
