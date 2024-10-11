@@ -1,0 +1,3 @@
+// go test ./... > test_results.txt
+
+ok  	student/student_mux	0.004s
