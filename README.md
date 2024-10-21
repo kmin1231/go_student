@@ -1,16 +1,16 @@
-<h2>&nbsp;<code>Go</code>&nbsp;Student Information Management System</h2>
+<h2><code>Go</code>&nbsp;Student Information Management System</h2>
 
-#### 📖 Overview
+### 📖 Overview
 This is a simple <b>Command Line Interface (CLI)</b> based program for managing student information, using <code><b>Go</b></code> and the <code><b>Gin</b></code> web framework. This program serves as a practical exercise for implementing <b>RESTful APIs</b>. It facilitates the management of student records through <b>CRUD</b> functionalities, allowing users to add, update, delete, and retrieve student details.
 
-#### 📜 `Student` struct
+### 📜 `Student` struct
 <b><code>Id</code> (int)</b>: a <b>unique</b> identifier for each student<br>
 <b><code>Name</code> (string)</b>: the name of the student -- required for creating or updating a student record)<br>
 <b><code>Age</code> (int)</b>: the age of the student<br>
 <b><code>Score</code> (int)</b>: the score of the student<br>
 <b><code>Grade</code> (string)</b>: the grade of the student -- automatically determined based on <code><b>Score</b></code>
 
-#### 📜 API Endpoints
+### 📜 API Endpoints
 
 <code><b>GET</b> /students</code>: retrieve a list of all students<br>
 <code><b>GET</b> /students/:id</code>: retrieve a specific student by ID<br>
@@ -23,7 +23,7 @@ This is a simple <b>Command Line Interface (CLI)</b> based program for managing 
 
 <br>
 
-📌 <code><b>student_mux</b></code>: a program providing a simple RESTful API for efficiently managing student information -- <code><b>Gorilla/Mux</b></code> web framework version
+📌 <code><b>student_mux</b></code>: a simple <b>RESTful API</b> for managing student information using the <code><b>Gorilla/Mux</b></code> web framework
 
 <br>
 
