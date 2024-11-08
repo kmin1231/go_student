@@ -258,7 +258,7 @@ func CalculateGradeHandler(c *gin.Context) {
 
 	result := fmt.Sprintf(
 		"ID: %d\nName: %s\nAge: %d\nScore: %d\nGrade: %s\n",
-		student.Id, student.Name, student.Age, student.Score, grade, // 학생의 정보 및 학점
+		student.Id, student.Name, student.Age, student.Score, grade,
 	)
 
 	c.String(http.StatusOK, result)
