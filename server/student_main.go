@@ -35,7 +35,7 @@ func SetupHandlers(g *gin.Engine) {	// routing handler
 	// lastId = 0
 
 	// dummy data
-	students[1] = Student{1, "Tom", 25, 85, "B"}
+	students[1] = Student{1, "David", 25, 83, "B"}
 	students[2] = Student{2, "Jenny", 22, 98, "A"}
 	lastId = 2
 }

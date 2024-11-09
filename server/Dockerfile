@@ -11,8 +11,13 @@ COPY . .
 RUN go build -o main student_main.go
 
 FROM alpine:latest
+RUN apk update && apk add curl
+
 WORKDIR /app
 
 COPY --from=builder /app/main .
 
-CMD ["./main"]
+COPY wait-for-it.sh .
+RUN chmod +x wait-for-it.sh
+
+ENTRYPOINT ["./main"]

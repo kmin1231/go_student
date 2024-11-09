@@ -1,0 +1,29 @@
+services:
+  server:
+    image: edenminkim/student:v241109
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/students"]
+      interval: 30s
+      start_period: 10s
+      retries: 10
+      timeout: 10s
+    networks:
+      - student-network
+    environment:
+      - GIN_MODE=release
+
+
+  client:
+    image: edenminkim/student_client:v241109
+    depends_on:
+      server:
+        condition: service_healthy
+    command: ["./request.sh"]
+    networks:
+      - student-network
+
+networks:
+  student-network:
+    driver: bridge

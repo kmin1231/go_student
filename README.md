@@ -5,7 +5,7 @@ This is a simple <b>Command Line Interface (CLI)</b> based program for managing 
 
 ### 📜 `Student` struct
 <b><code>Id</code> (int)</b>: a <b>unique</b> identifier for each student<br>
-<b><code>Name</code> (string)</b>: the name of the student -- required for creating or updating a student record)<br>
+<b><code>Name</code> (string)</b>: the name of the student -- required for creating or updating a student record<br>
 <b><code>Age</code> (int)</b>: the age of the student<br>
 <b><code>Score</code> (int)</b>: the score of the student<br>
 <b><code>Grade</code> (string)</b>: the grade of the student -- automatically determined based on <code><b>Score</b></code>
