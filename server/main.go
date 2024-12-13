@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"	// web framework 'Gin'
-	"github.com/gin-contrib/cors"
+	"github.com/gin-contrib/cors"	// Cross-Origin Resource Sharing
 )
 
 type Student struct {
@@ -82,10 +82,6 @@ func GetStudentsHandler(c *gin.Context) {
 
 	// c.JSON(http.StatusOK, list)   // return in JSON format
 	c.String(http.StatusOK, result)
-
-	c.JSON(http.StatusOK, gin.H{
-        "students": list,
-    })
 }
 
 func GetStudentHandler(c *gin.Context) {
