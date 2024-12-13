@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"	// web framework 'Gin'
+	"github.com/gin-contrib/cors"
 )
 
 type Student struct {
@@ -74,6 +75,10 @@ func GetStudentsHandler(c *gin.Context) {
 
 	// c.JSON(http.StatusOK, list)   // return in JSON format
 	c.String(http.StatusOK, result)
+
+	c.JSON(http.StatusOK, gin.H{
+        "students": list,
+    })
 }
 
 func GetStudentHandler(c *gin.Context) {
@@ -314,6 +319,15 @@ func SearchStudentHandler(c *gin.Context) {
 
 func main() {
 	r := gin.Default()
+
+	r.Use(cors.New(cors.Config{
+		AllowOrigins: []string{"http://localhost:5000"},  // flask
+		AllowMethods: []string{"GET", "POST", "PUT", "DELETE"},
+		AllowHeaders: []string{"Origin", "Content-Type", "Authorization"},
+	}))
+
+	r.Static("/flask_proxy", "./flask_proxy")
+
 	SetupHandlers(r)
 	r.Run(":3000")
 }
