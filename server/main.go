@@ -23,6 +23,13 @@ var students map[int]Student	// map to save student information
 var lastId int					// variable to track the last student
 
 func SetupHandlers(g *gin.Engine) {	// routing handler
+
+	g.GET("/", func(c *gin.Context) {
+        c.JSON(200, gin.H{
+            "message": "ROOT!",
+        })
+    })
+
 	g.GET("/students", GetStudentsHandler)
 	g.GET("/students/:id", GetStudentHandler)
 	g.POST("/students", PostStudentHandler)
@@ -321,12 +328,10 @@ func main() {
 	r := gin.Default()
 
 	r.Use(cors.New(cors.Config{
-		AllowOrigins: []string{"http://localhost:5000"},  // flask
+		AllowOrigins: []string{"*"},
 		AllowMethods: []string{"GET", "POST", "PUT", "DELETE"},
 		AllowHeaders: []string{"Origin", "Content-Type", "Authorization"},
 	}))
-
-	r.Static("/flask_proxy", "./flask_proxy")
 
 	SetupHandlers(r)
 	r.Run(":3000")
