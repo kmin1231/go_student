@@ -5,10 +5,11 @@ COPY go.mod ./
 COPY go.sum ./
 
 RUN go mod download
+RUN go mod tidy
 
 COPY . .
 
-RUN go build -o main student_main.go
+RUN go build -o main main.go
 
 FROM alpine:latest
 RUN apk update && apk add curl
