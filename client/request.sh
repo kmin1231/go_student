@@ -38,7 +38,7 @@ echo -e "\n"
 
 echo "(5) Testing PUT /students/:id"
 echo -e "before 'PUT' request"
-curl -X GET "$BASE_URL/students/2"
+curl -X GET "$BASE_URL/students/1"
 echo -e "\n"
 
 curl -X PUT "$BASE_URL/students/1" -d '{"name": "Steve", "age": 26, "score": 90}'
