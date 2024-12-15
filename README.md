@@ -3,6 +3,14 @@
 ## 📖 Overview
 This project is focused on building and deploying a <b>RESTful API</b> for managing student information. It demonstrates how to implement a RESTful API with <code><b>Go</b></code> and the <code><b>Gin</b></code> web framework, and how to <b>containerize</b> the application using <b><code>Docker</code></b> for local development and <b><code>Kubernetes</b></code> in a scalable environment.
 
+<div align="center">
+  <img src="https://img.shields.io/badge/Go-5ac9e2?style=for-the-badge&logo=Go&logoColor=white">
+  <img src="https://img.shields.io/badge/Shell_Script-121011?style=for-the-badge&logo=gnu-bash&logoColor=white">
+  <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white">
+  <img src="https://img.shields.io/badge/docker_compose-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white">
+  <img src="https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white">
+</div>
+
 ## 💫 SERVER
 
 - provides a set of **RESTful APIs** to manage student records
